@@ -1,0 +1,27 @@
+//START the KAFKA Server and ZOOKEEPER
+
+zookeeper-server-start.bat C:\kafka\config\zookeeper.properties
+kafka-server-start.bat C:\kafka\config\server.properties
+
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic skilltrackertopic
+kafka-topics.bat --list --bootstrap-server localhost:9092
+kafka-topics.bat --delete --bootstrap-server localhost:9092 --topic skilltrackertopic
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic skilltrackertopic
+
+
+//New topic for Company POJO
+
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic compStockPojo
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic compStockPojo
+
+
+//New topic for Message string
+
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic msgString
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic msgString
+
+//New topic for Stock POJO
+
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic compStockPojo1
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic compStockPojo1

@@ -1,0 +1,108 @@
+CREATE DATABASE skilltracker;
+
+USE skilltracker;
+
+CREATE TABLE `skilltracker`.`skills` (
+  `skillid` VARCHAR(5) NOT NULL,
+  `skillname` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`skillid`));
+
+CREATE TABLE `skilltracker`.`associate` (
+  `id` VARCHAR(50) NOT NULL,
+  `username` VARCHAR(30) NOT NULL,
+  `name` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `mobile` VARCHAR(10) NOT NULL,
+  `lastupdated` VARCHAR(45) NOT NULL,
+  `role` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+
+CREATE TABLE `skilltracker`.`mapping` (
+  `id` VARCHAR(50) NOT NULL,
+  `associateid` VARCHAR(45) NOT NULL,
+  `skillid` VARCHAR(45) NOT NULL,
+  `rating` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
+  
+//-------------------------------   INSERT STATEMENTS ----------------------------------
+
+INSERT INTO `skilltracker`.`associate` (`id`,`username`,`name`,`email`,`mobile`,`lastupdated`,`password`,`role`) VALUES ('00f7079f-5395-45a3-95d5-e52d5938a84d','CTS172280','Promit Majumder','promitm@skills.com','9051898881','Thu Apr 20 18:47:44 IST 2023','UGFzc3dvcmQtMTIz','ADMIN');
+INSERT INTO `skilltracker`.`associate` (`id`,`username`,`name`,`email`,`mobile`,`lastupdated`,`password`,`role`) VALUES ('4183c8d9-ea6f-4564-a255-ec26dbd60496','CTS123456','Gangotri Basu','gangotri.b@skills.com','9087654532','Thu Apr 20 19:11:27 IST 2023','UGFzc3dvcmQtMTIz','USER');
+INSERT INTO `skilltracker`.`associate` (`id`,`username`,`name`,`email`,`mobile`,`lastupdated`,`password`,`role`) VALUES ('593e0ca9-2eec-48c8-a624-39bcd7e9947e','CTS929229','Tripatpal Singh','trip.s@skills.com','9087655324','Thu Apr 20 12:22:07 IST 2023','UGFzc3dvcmQtMTIz','USER');
+INSERT INTO `skilltracker`.`associate` (`id`,`username`,`name`,`email`,`mobile`,`lastupdated`,`password`,`role`) VALUES ('d6e04960-dcb1-4f76-a9d6-90ccdadbeb94','CTS123457','Dipa Rani Das','drd@skill.com','9087649876','Thu Apr 20 19:33:46 IST 2023','QWJjZC0xMjM0','USER');
+
+
+
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('0f7a871c-c81c-47ec-ad3f-28dd36a73828','CTS123456','T007','20');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('124ba668-d93e-4bb5-b957-1f0ac26f5082','CTS123456','T009','20');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('139add44-2773-4a28-94ec-dc180b2ffb84','CTS929229','N002','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('196e92b3-4242-4b58-aeb5-19bd57e7a9c1','CTS929229','T007','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('20e34b4c-dc88-4188-824c-c31aa92ea022','CTS123457','T005','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('261ecce3-03b7-40c6-953a-eacd8585dcab','CTS929229','T009','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('2b98e42d-f5f2-4f0b-84a0-2f1d101d6c0f','CTS123456','T001','7');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('2e4b36eb-ed7d-4e15-86e5-edba6d318dca','CTS123456','T005','7');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('315654b0-097e-4e97-a3e6-81a7be89f8d3','CTS123456','T008','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('3235f759-8a43-4798-ac45-47261f66749f','CTS123457','T008','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('34e5f60e-1cda-4943-90f4-014f855cf6fc','CTS123456','N003','20');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('36bec340-6bbc-4baf-9902-a2cdc6502fd8','CTS172280','T001','10');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('423bd9a5-864d-4ea3-8aa4-06287be4df79','CTS929229','T003','16');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('4fd19403-eefa-4997-b156-e089f4dd41ec','CTS929229','T006','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('50950851-1633-4923-9491-6610b6f46d0e','CTS123457','T001','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('5705ef4e-59b6-4819-b823-d5b8ee3540ab','CTS172280','N003','16');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('5c4935f8-7ebb-405e-9ddf-5429b136691e','CTS123457','N003','19');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('61156686-ae28-483d-89c9-72062eb3b6c2','CTS172280','T008','9');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('68c7ed07-3fce-4fb3-bdf4-12237f260a8e','CTS123457','T007','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('6a20ec0b-8be0-4a9e-8eb3-b314390595a3','CTS123456','T006','7');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('6a7097e8-fca4-44c3-bba8-66541df09a7f','CTS929229','T010','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('6ea589e6-705d-4eb1-a6f3-662e5dc8c866','CTS123456','N001','20');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('718e90c0-aaef-4581-a9e8-d1fd966c9a5d','CTS172280','T009','10');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('73f32cd6-b8c9-49c2-847b-abb94466ecd8','CTS123456','N002','20');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('7996d156-320b-4c13-8e4c-835d7259c5f4','CTS172280','T003','19');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('7d866c6b-3eb9-4334-98a0-58c699b2a417','CTS123456','T002','8');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('7dbe54d8-7681-4a15-a89b-6f0a30b7d326','CTS172280','T004','19');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('867523ed-8341-4049-b971-a09f50173351','CTS929229','N001','16');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('932d5b0a-948b-43d6-8cc6-09dc233a821a','CTS172280','T005','19');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('9911b216-dcc7-4114-a796-1250535a49f1','CTS929229','N003','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('9ae3e385-d7d1-443a-aea7-76bcf37b7344','CTS929229','T004','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('9d66276c-f4d9-4b1c-ac5d-093c0151c62d','CTS172280','T006','19');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('9e603944-28a6-4c72-9e24-385bf6886e52','CTS929229','T008','15');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('a2a6fda5-91db-4400-b30c-0a7d26bdf5da','CTS172280','N002','15');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('a2feceb7-8a5b-46fa-a2c5-fd5a9e6555c9','CTS123457','T009','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('a9aee98e-48b7-4c5a-8f34-93141a571053','CTS123457','T006','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('b092f1f0-5e0c-4fe9-88cd-d9a752b8cb71','CTS123457','T002','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('b18f715d-933f-4806-bbcb-98e39fd871cd','CTS123457','T003','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('b2e9adf6-75d2-4a59-9081-900948f29a89','CTS172280','T007','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('c235f25c-6cce-481c-be83-1e82b0365002','CTS123457','N001','16');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('cb6fed8d-5757-43d2-9b09-58e22722652d','CTS123457','N002','19');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('cc2714f1-d862-449e-b9bf-2ead8a4fe868','CTS172280','T002','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('cd4ef1a4-6371-442b-935f-277d52d3c063','CTS123456','T004','7');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('d2a993b1-a594-49be-9e58-78b297157eda','CTS172280','N001','15');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('da698c85-6fa8-4709-8380-f30fd19304b6','CTS123457','T010','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('db2ca86e-2c96-4d28-bdef-3d9f441d252e','CTS929229','T005','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('dbaee3cd-a9a9-4940-bee2-92b535ddf303','CTS929229','T002','16');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('f16347f2-4ae6-4084-a961-ab1b15b63d68','CTS123456','T010','17');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('f3f93a73-e61a-40be-ad94-42f0860b710f','CTS929229','T001','15');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('f7af5d7b-60e9-4cd8-8954-0021378dadff','CTS172280','T010','18');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('fdbbd8e4-6ba4-400c-b733-ca3a65fffea5','CTS123457','T004','15');
+INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VALUES ('fe8d3e77-4ab9-4d56-b4c9-b30b9d5c149b','CTS123456','T003','20');
+
+
+
+
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T001', 'html-css-javascript');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T002', 'angular');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T003', 'react');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T004', 'spring');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T005', 'restful');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T006', 'hibernate');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T007', 'git');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T008', 'docker');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T009', 'jenkins');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T010', 'aws');
+
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('N001', 'spoken');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('N002', 'communication');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('N003', 'aptitude');

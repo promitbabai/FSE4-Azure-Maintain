@@ -1,0 +1,126 @@
+
+
+AZURE URLS
+------------
+
+		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAllAssociates - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
+		httsp://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280 - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
+		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociatesByName?name=Gangotri%20Basu
+		http://localhost:8090/skill-tracker/api/v1/admin/getAllAssociates
+
+		http://localhost:8090/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
+		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
+
+
+Hostname = mysql-server-skilltracker.mysql.database.azure.com
+
+
+GETTING URLS from BACKEND SPRING-BOOT PROJECT
+---------------------------------
+	Search Microservices =		http://localhost:8090/skill-tracker/api/v1/admin/getAllAssociates = JSON Data displayed from Mongo DB
+					http://localhost:8090/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
+					http://localhost:8090/skill-tracker-search/getAssociateByID?associateID=63bd7b306cbf4c84b4009882 = JSON Data coming from Mongo DB by ID
+					http://localhost:8090/skill-tracker-search/getAssociatesBySkill?topic=angular
+					http://localhost:8090/skill-tracker-search/getAssociatesByName?name=Gangotri%20Basu
+					http://localhost:8090/skill-tracker/api/v1/admin/getAssociatesByName?name=TS
+
+					http://localhost:8090/skill-tracker-search/getAllAssociatesOrderBySort?orderby=name&sort=asc
+					http://localhost:8090/skill-tracker-search/getAllAssociatesOrderBySort?orderby=associateid&sort=desc
+
+
+	Maintain Microservices = 	http://localhost:8091/skill-tracker/api/v1/engineer/add-profile - Postman to MySQL to Kafka to MongoDB - Data saved successfully
+					http://localhost:8091/skill-tracker/api/v1/engineer/getAllAssociates = JSON Data displayed from MySQL
+					http://localhost:8091/skill-tracker/api/v1/engineer/getAssociateByID?associateID=CTS172280 = JSON Data coming in Browser from MySql DB by ID
+					http://localhost:8091/skill-tracker/api/v1/engineer/validateUserCredentials?associateID=CTS200487&associatePassword=####
+					http://localhost:8091/skill-tracker/api/v1/engineer/getAssociateSkillRatings?associateID=CTS200487
+
+	EUREKA Server UI = 		http://localhost:8761/ = Eureka GUI
+
+	AUTH Server 			http://localhost:8097/skill-tracker/api/v1/auth/authenticate
+
+
+	IIHT Presentation URLs  (Via API-GATEWAY)
+
+			 		http://localhost:8070/skill-tracker/api/v1/engineer/add-profile - Postman to MySQL to Kafka to MongoDB - Data saved successfully
+					http://localhost:8070/skill-tracker/api/v1/engineer/getAllSkills
+
+
+					
+					http://localhost:8070/skill-tracker/api/v1/admin/getAssociatesBySkill?topic=angular
+					http://localhost:8070/skill-tracker/api/v1/admin/getAssociatesByName?name=Gangotri%20Basu
+					http://localhost:8070/skill-tracker/api/v1/admin/getAssociatesByName?name=TS
+					http://localhost:8070/skill-tracker/api/v1/admin/getAllAssociates
+					http://localhost:8090/skill-tracker/api/v1/admin/getAssociateByID?associateID=174567
+					http://localhost:8090/skill-tracker/api/v1/admin/getAssociateByID?associateID=63bd7b306cbf4c84b4009882 = JSON Data coming from Mongo DB by ID
+
+					http://localhost:8090/skill-tracker/api/v1/admin/getAllAssociatesOrderBySort?orderby=name&sort=asc
+					http://localhost:8090/skill-tracker/api/v1/admin/getAllAssociatesOrderBySort?orderby=associateid&sort=desc
+
+
+
+
+	AZURE APP SERVICE URLs =
+					fse4-azure-search.azurewebsites.net
+
+http://localhost:8097/skill-tracker/a
+8097
+
+
+Password-123
+GETTING URLS from EUREKA SERVER
+---------------------------------
+
+	Search Microservices = 		http://172.18.3.245:8090/skill-tracker-search/searchGetData
+	Maintain Microservices = 	http://172.18.3.245:8091/skill-tracker-maintain/maintainGetData
+
+
+ANGULAR Frontend always picks URLS from API-GATEWAY
+---------------------------------------------------
+Gateway is running on 8070 -
+	http://localhost:8070/skill-tracker-search/searchGetData
+	http://localhost:8070/skill-tracker-maintain/maintainGetData
+
+MONGODB
+-------
+
+Open MondoDb COMPASS
+in Connect to box give - mongodb://localhost:27017/
+
+ADMIN USER
+	CTS172280
+	Skilltracker-123
+
+CTS123456 = Password-123
+CTS222222 = Password-123
+	
+
+POSTMAN 
+
+POST CALL JSOn FILE
+
+{
+        "associateid": "929345",
+        "name": "Tripatpal Singh",
+        "mobile": "9934567890",
+        "email": "tripatpal.singh@skilltracker.com"
+}
+
+
+
+AZURE PORTAL 
+	Username = bc_wallet_230424_tbiv6aqlv4@buildercloudwallet.on
+	password = bjYyJTk5!
+
+http://localhost:8092/skill-tracker/api/v1/engineer/getAllAssociates = JSON Data displayed from MySQL
+
+
+com.iiht.fse4.skilltrackermaintain.
+
+
+Local Mongo Connection String 
+
+mongodb://localhost:27017
+
+MongoDB Atlas Connection String
+mongodb+srv://promitbabai:<password>@cluster0.lpcdyxy.mongodb.net/test
+
