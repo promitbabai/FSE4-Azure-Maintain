@@ -8,6 +8,10 @@ Azure-Maintain Microservices is Deployed on Azure with below 2 DB connection opt
     1) Local MySQL Database
     2) Azure MySQL Database,
 
+Once Data is inserted into any of the above two databases then a JSON Message is sent to the 
+Azure Service Bus Queue - so that it is recieved by the Azure Search Microserice project and inserted into the 
+Azure CosmosDB (MongoDB API) - This is a part of the CQRS Design Pattern
+Then it sends 
     
 ## Running this sample
 

@@ -364,11 +364,6 @@ public class AssociateService {
 	
 	  private void sendMessageInAzureServiceBus(String mongoOpsCode, Profile profile) {
 	  
-		  
-			/*
-			 * ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-			 * String json = ow.writeValueAsString(profile);
-			 */
 		  System.out.println("JSON OBJECT of PROFILE");  
 		 
 		  String uglyJsonString = new Gson().toJson(profile);

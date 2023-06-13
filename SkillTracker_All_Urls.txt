@@ -20,6 +20,8 @@ AZURE URLS
 		http://localhost:8090/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
 		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
 
+		https://fse4-azure-maintain.azurewebsites.net/skill-tracker/api/v1/engineer/getAllAssociates
+		https://fse4-azure-maintain.azurewebsites.net/skill-tracker/api/v1/engineer/add-profile
 
 Hostname = mysql-server-skilltracker.mysql.database.azure.com
 
