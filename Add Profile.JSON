@@ -1,0 +1,64 @@
+{
+    "associateid": "CTS132890",
+    "name": "Anirban majumder",
+    "mobile": "1234567890",
+    "email": "anirban.majumder@skilltracker.com",
+    "lastupdated": "10.10.2023",
+    "techskills": [
+    {
+      "topic": "html-css-javascript",
+      "rating": "12"
+    },
+    {
+      "topic": "angular",
+      "rating": "15"
+    },
+    {
+      "topic": "react",
+      "rating": "12"
+    },
+    {
+      "topic": "spring",
+      "rating": "18"
+    },
+    {
+      "topic": "restful",
+      "rating": "12"
+    },
+    {
+      "topic": "hibernae",
+      "rating": "15"
+    },
+    {
+      "topic": "git",
+      "rating": "12"
+    },
+    {
+      "topic": "docker",
+      "rating": "18"
+    },
+    {
+      "topic": "jenkins",
+      "rating": "12"
+    },
+    {
+      "topic": "aws",
+      "rating": "18"
+    }
+],
+"nontechskills": [
+    {
+      "topic": "spoken",
+      "rating": "15"
+    },
+    {
+      "topic": "communication",
+      "rating": "19"
+    },
+    {
+      "topic": "aptitude",
+      "rating": "18"
+    }
+  ]
+
+}

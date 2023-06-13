@@ -24,6 +24,14 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import com.azure.messaging.servicebus.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.iiht.fse4.skilltrackermaintain.azureservicebus.SendMessageToAzureServiceBus;
+
+
 //import com.iiht.fse4.skilltrackermaintain.kafkaconfig.KafkaMessage;
 //import com.iiht.fse4.skilltrackermaintain.kafkaconfig.KafkaProducerProfile;
 
@@ -46,6 +54,10 @@ public class AssociateService {
 
 
     Map<String, String> allSkillsMap = new HashMap<String, String>();
+
+    //public String azure-service-bus-queue-name = "update-record-in-search-queue";
+    //public String azure-service-bus-connection-string = "Endpoint=sb://skill-tracker-service-bus.servicebus.windows.net/;SharedAccessKeyName=queue-policy;SharedAccessKey=qGTrNdBJeXrW08C27eninGOb2Hjq4pp9M+ASbDG6VVs=;EntityPath=update-record-in-search-queue";
+
 
 
     public List<Associate> getAllAssociates (){
@@ -141,6 +153,12 @@ public class AssociateService {
     /**
      * This method is used to validate the Associate Profile sent from the UI and then
      * persist it in the MySql database and then send the JSON object to the Search Microservice
+     * via either KAFKA or via AZURE SERVICE BUS
+     * STEP - 01 - Save the Associate Entity into the Associate Table (Azure MySQl DB) or Local MySQL
+     * STEP - 02 - Check for data in Technical Skills Array andSave into the Mapping Table (Azure MySQl DB)
+     * STEP - 03 - Check for data in NonTechnical Skills Array and Save into the Mapping Table
+     * STEP - 04 - check if all records successfully inserted into DB, then send message to
+     *             SEARCH MicroService via either KAFKA or via AZURE SERVICE BUS
      * @param profile - The Associate Profile sent from UI
      * @return Response - The Response object holding some date and messgae to be displayed in the UI
      */
@@ -173,9 +191,13 @@ public class AssociateService {
             }
 
 
-//            STEP 4 - check if all records successfully inserted into DB, then send message to KAFKA
-            log.info("Sending Profile Object to kafka server");
-            System.out.println("Sending Profile Object to kafka server");
+            // STEP 4 - check if all records successfully inserted into DB, then send message to KAFKA
+            log.info("Sending Profile Object to AZURE SERVICE BUS");
+            System.out.println("Sending Profile Object to AZURE SERVICE BUS");
+            sendMessageInAzureServiceBus("INSERT", profile);
+            //com.iiht.fse4.skilltrackermaintain.azureservicebusSendMessageInAzureServiceBus azureServiceBus = new SendMessageInAzureServiceBus();
+            //azureServiceBus.sendMessage("INSERT", profile);
+            
             //sendKafkaMessage("INSERT", profile);
 
             //String responseMsgFroUI = "Associate Data with ID = " + associate.getId() + ", saved successfully!!";
@@ -208,20 +230,14 @@ public class AssociateService {
             Associate associateFromDB = null;
 
             //checkIfUpdationIsAllowed(profile);
-
-
-
-
-
             // STEP - 01 (NOT REQUIRED) - Save into the Associate Table, as Profile is already present
-
             // STEP - 02 - Check for data in Technical Skills Array andSave into the Mapping Table
             List<Skills> skillsListFromDB = skillsRepo.findAll();
 
             // 1) Get the List of Mapping Entities Rows for Nirnayana
-        // 2) it will  have UUIDS
-        // 3) update only the 3-4 rows that was sent from UI
-        // 4) Backup sol - Update all from Backend
+            // 2) it will  have UUIDS
+            // 3) update only the 3-4 rows that was sent from UI
+            // 4) Backup sol - Update all from Backend
 
             List<Mapping> mapingsList = getAllSkillsByAssociateId(profile.getAssociateid());
 
@@ -344,6 +360,44 @@ public class AssociateService {
         }
 
     }
+
+	
+	  private void sendMessageInAzureServiceBus(String mongoOpsCode, Profile profile) {
+	  
+		  
+			/*
+			 * ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+			 * String json = ow.writeValueAsString(profile);
+			 */
+		  System.out.println("JSON OBJECT of PROFILE");  
+		 
+		  String uglyJsonString = new Gson().toJson(profile);
+		  Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		  JsonElement je = JsonParser.parseString(uglyJsonString);
+		  String prettyJsonString = gson.toJson(je);
+		  
+		  
+		  System.out.println(prettyJsonString);    
+		  
+		  List <ServiceBusMessage> listofMessages = new ArrayList<ServiceBusMessage>();
+		  listofMessages.add(new ServiceBusMessage(prettyJsonString));
+		  
+		  System.out.println("########### sendMessageInAzureServiceBus() Method ");
+		  java.lang.Iterable<com.azure.messaging.servicebus.ServiceBusMessage>
+		  iterableMessages = listofMessages;
+		  
+		  
+		  ServiceBusSenderClient sender = new ServiceBusClientBuilder()
+		  .connectionString(
+		  "Endpoint=sb://skill-tracker-service-bus.servicebus.windows.net/;SharedAccessKeyName=queue-policy;SharedAccessKey=qGTrNdBJeXrW08C27eninGOb2Hjq4pp9M+ASbDG6VVs=;EntityPath=update-record-in-search-queue")
+		  .sender() .queueName("update-record-in-search-queue") .buildClient();
+		  
+		  sender.sendMessages(iterableMessages);
+		  System.out.println("Sent a single message to the queue: " +
+		  "update-record-in-search-queue");
+	  
+	 }
+	 
 
 //    private void sendKafkaMessage(String mongoOpsCode, Profile profile) {
 //        KafkaMessage kafkaMsgEent = new KafkaMessage();
