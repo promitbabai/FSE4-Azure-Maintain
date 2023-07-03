@@ -1,0 +1,46 @@
+
+
+	DOCKER COMMANDS
+
+To build a Docker image from Spring Boot	= docker build -t skill-tracker-maintain .   // please see that you have given the DOT
+Now check if the image is created properly	= docker images
+Run the Docker image as container		= docker run -p 8000:8090 skill-tracker-maintain     (-p is doing Port forward)
+						OR
+						= docker run -d -p 8000:8090 skill-tracker-maintain  (-d is running in dormant mode in background)
+
+Check the running docker container		= docker container ls
+Remove a Docker container			= docker rm -f 453466456     (-f means forcefully)
+
+
+	PUSH DOCKER IMAGE TO DOCKERHUB
+	-------------------------------
+docker login
+username      (just give the username of DockerHub - dont give the mail ID)podocker
+password
+Authenticating with existing credentials...
+Login Succeeded
+
+
+
+docker tag skill-tracker-search promitbabai/skill-tracker-search   	= creates a local image tagged to Dockerhub Account
+docker images								= check that image
+docker push promitbabai/skill-tracker-search				= push inside DockerHub
+
+
+Using default tag: latest
+The push refers to repository [docker.io/promitbabai/skill-tracker-search]
+                              docker push promitbabai/skill-tracker-search
+d7802b8508af: Pushed
+e3abdc2e9252: Mounted from library/openjdk
+eafe6e032dbd: Mounted from library/openjdk
+92a4e8a3140f: Mounted from library/openjdk
+latest: digest: sha256:43d9ebedcca33cccc27807d8bda1a49804d4f21b3cd1da3f0722e1c4b87d7180 size: 1371
+
+
+
+         PUSH DOCKER IMAGE TO AZURE CONTAINER REGISTRY
+	-----------------------------------------------
+
+
+
+ 
