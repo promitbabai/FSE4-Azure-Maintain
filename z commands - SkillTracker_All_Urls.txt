@@ -6,6 +6,10 @@ https://iihtedu.cloud.builder.ai/			https://portal.azure.com
 	Password = upUgi4ws					Password = bjYyJTk5!
 
 
+https://laas.makemylabs.in/wsm/Java_FSE-Cognizant-1-skip20230526070737?invitation_id=3f246367-196d-45ed-93f8-213a6081b861&context=True 
+  - cogjava24@mml.local
+  - hgqdhgk1
+
 
 The credentials have a validity of 60 days and a spending limit of $100. It is important that you do not exceed these limits, as exceeding them will result in the disabling of your cloud access and loss of all data (which cannot be recovered).
 
