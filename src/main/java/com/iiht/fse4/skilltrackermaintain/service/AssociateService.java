@@ -5,6 +5,7 @@ import com.iiht.fse4.skilltrackermaintain.exception.*;
 import com.iiht.fse4.skilltrackermaintain.entity.Associate;
 import com.iiht.fse4.skilltrackermaintain.entity.Mapping;
 import com.iiht.fse4.skilltrackermaintain.entity.Skills;
+import com.iiht.fse4.skilltrackermaintain.model.AuthenticationRequest;
 import com.iiht.fse4.skilltrackermaintain.model.Profile;
 import com.iiht.fse4.skilltrackermaintain.model.Response;
 
@@ -193,14 +194,8 @@ public class AssociateService {
 
             // STEP 4 - check if all records successfully inserted into DB, then send message to KAFKA
             log.info("Sending Profile Object to AZURE SERVICE BUS");
-            System.out.println("Sending Profile Object to AZURE SERVICE BUS");
             sendMessageInAzureServiceBus("INSERT", profile);
-            //com.iiht.fse4.skilltrackermaintain.azureservicebusSendMessageInAzureServiceBus azureServiceBus = new SendMessageInAzureServiceBus();
-            //azureServiceBus.sendMessage("INSERT", profile);
-            
             //sendKafkaMessage("INSERT", profile);
-
-            //String responseMsgFroUI = "Associate Data with ID = " + associate.getId() + ", saved successfully!!";
             response.setMessage(associate.getId());
             response.setStatus(201);
             log.info("Associate Data with ID = " + associate.getId() + ", saved successfully!!");
@@ -254,12 +249,13 @@ public class AssociateService {
 
 
             //STEP 4 - check if all records successfully inserted into DB, then send message to KAFKA
-            log.info("LOG ENTRY - Sending Profile Object to kafka server");
-            System.out.println("Sending Profile Object to kafka server");
-            //sendKafkaMessage("UPDATE", profile);
-        response.setStatus(201);
-        response.setMessage("Profile updated in the Database");
-        return response;
+            log.info("LOG ENTRY - Sending Profile Object" + profile.getAssociateid() + " to Azure ServiceBus to be Consumed by Search App Service");
+            sendMessageInAzureServiceBus("INSERT", profile);
+            //sendKafkaMessage("INSERT", profile);
+            response.setMessage(profile.getAssociateid());
+            response.setStatus(201);
+            log.info("Associate Data Updated = " + profile.getAssociateid() + ", saved successfully!!");
+            return response;
     }
 
 
@@ -450,6 +446,20 @@ public class AssociateService {
         mapping.setRating(skillsFromUI.getRating());
 //        System.out.println("SAVING TO MAPPING TABLE = MAPPING OBJECT = " + mapping.toString());
         return mapping;
+    }
+
+
+    public boolean authenticateUserCredentials(AuthenticationRequest authRequest){
+        boolean isUserAuthenticated;
+        Associate associate =  associateRepo.findByUsername(authRequest.getUsername());
+        if(associate.getPassword().equals(authRequest.getPassword())){
+            System.out.println("USER PASSWORD MATCHED");
+            return true;
+        }else{
+            System.out.println("USER PASSWORD NOT MATCHED");
+            return false;
+        }
+
     }
 
 

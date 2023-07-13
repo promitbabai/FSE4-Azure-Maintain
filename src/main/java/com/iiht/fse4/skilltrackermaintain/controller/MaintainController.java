@@ -4,9 +4,11 @@ package com.iiht.fse4.skilltrackermaintain.controller;
 import com.iiht.fse4.skilltrackermaintain.entity.Associate;
 import com.iiht.fse4.skilltrackermaintain.entity.Skills;
 import com.iiht.fse4.skilltrackermaintain.entity.Mapping;
+import com.iiht.fse4.skilltrackermaintain.model.AuthenticationRequest;
 import com.iiht.fse4.skilltrackermaintain.model.Response;
 import com.iiht.fse4.skilltrackermaintain.model.Profile;
 import com.iiht.fse4.skilltrackermaintain.service.AssociateService;
+import com.iiht.fse4.skilltrackermaintain.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,9 @@ public class MaintainController {
 
     @Autowired
     AssociateService service;
+
+    @Autowired
+    JwtUtil jwtUtil;
 
 
     /**
@@ -105,6 +110,29 @@ public class MaintainController {
         Response response = service.updateProfile(profile);
         return ResponseEntity.status(response.getStatus()).body(response.getMessage());
 
+    }
+
+
+    @PostMapping("/authenticate")
+    public ResponseEntity authenticate(@RequestBody AuthenticationRequest authRequest) throws Exception {
+        Response response = new Response();
+        System.out.println("---------------- \n\n START FLOW Authenticate()");
+        System.out.println("Inside Controller - authenticate()");
+        System.out.println("Username - Pass = " + authRequest.getUsername() + " - " + authRequest.getPassword());
+        if(service.authenticateUserCredentials(authRequest)){
+            String generatedToken = jwtUtil.generateToken(authRequest.getUsername());
+            System.out.println(" ############## GENERATED TOKEN " + generatedToken);
+
+            response.setStatus(200);
+            response.setMessage(generatedToken);
+        }else{
+            response.setStatus(403);
+            response.setMessage("UnAuthorised Access");
+        }
+
+
+
+        return ResponseEntity.status(response.getStatus()).body(response.getMessage());
     }
 
 
