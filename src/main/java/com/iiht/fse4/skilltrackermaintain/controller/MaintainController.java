@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://fse4-azure-gui.azurewebsites.net")
 @RequestMapping("/skill-tracker/api/v1/engineer")
 public class MaintainController {
 

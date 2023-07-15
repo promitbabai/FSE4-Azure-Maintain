@@ -360,7 +360,7 @@ public class AssociateService {
 	
 	  private void sendMessageInAzureServiceBus(String mongoOpsCode, Profile profile) {
 	  
-		  System.out.println("JSON OBJECT of PROFILE");  
+		  System.out.println("\n\n ############# JSON OBJECT of to be sent to AZURE SERVICE BUS");
 		 
 		  String uglyJsonString = new Gson().toJson(profile);
 		  Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -384,8 +384,7 @@ public class AssociateService {
 		  .sender() .queueName("update-record-in-search-queue") .buildClient();
 		  
 		  sender.sendMessages(iterableMessages);
-		  System.out.println("Sent a single message to the queue: " +
-		  "update-record-in-search-queue");
+		  System.out.println(" ############# Sent a single message to the queue: update-record-in-search-queue");
 	  
 	 }
 	 
