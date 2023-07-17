@@ -1,9 +1,9 @@
   	Azure Balance check 
 
 
-https://iihtedu.cloud.builder.ai/			https://portal.azure.com
+https://iihtedu.cloud.builder.ai/			        https://portal.azure.com
 	Username = promit.majumder25@mml.local			Username = bc_wallet_230424_tbiv6aqlv4@BuilderCloudWallet.onmicrosoft.com		
-	Password = upUgi4ws					Password = bjYyJTk5!
+	Password = upUgi4ws					            Password = bjYyJTk5!
 
 
 https://laas.makemylabs.in/wsm/Java_FSE-Cognizant-1-skip20230526070737?invitation_id=3f246367-196d-45ed-93f8-213a6081b861&context=True 
@@ -16,13 +16,12 @@ The credentials have a validity of 60 days and a spending limit of $100. It is i
 AZURE URLS
 ------------
 
-		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAllAssociates - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
-		httsp://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280 - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
-		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociatesByName?name=Gangotri%20Basu
-		http://localhost:8090/skill-tracker/api/v1/admin/getAllAssociates
+GUI =   https://fse4-azure-gui.azurewebsites.net/login
 
-		http://localhost:8090/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
-		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
+
+		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAllAssociates - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
+		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280 - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
+		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociatesByName?name=Gangotri%20Basu
 
 		https://fse4-azure-maintain.azurewebsites.net/skill-tracker/api/v1/engineer/getAllAssociates
 		https://fse4-azure-maintain.azurewebsites.net/skill-tracker/api/v1/engineer/add-profile
