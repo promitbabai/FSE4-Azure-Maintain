@@ -2,14 +2,39 @@
 
 	DOCKER COMMANDS
 
-To build a Docker image from Spring Boot	= docker build -t skill-tracker-maintain .   // please see that you have given the DOT
-Now check if the image is created properly	= docker images
-Run the Docker image as container		= docker run -p 8000:8090 skill-tracker-maintain     (-p is doing Port forward)
-						OR
-						= docker run -d -p 8000:8090 skill-tracker-maintain  (-d is running in dormant mode in background)
+To build a Docker image from Spring Boot		= docker build -t skill-tracker-search .   // please see that you have given the DOT
+												= docker build -t skill-tracker-search:ReadyForMC3 .  (imageName:TagName) // please see that you have given the DOT
+												= docker build -t skill-tracker-maintain:ReadyForMC3 .  (imageName:TagName) // the DOT is required
+Now check if the image is created properly		= docker images
 
-Check the running docker container		= docker container ls
-Remove a Docker container			= docker rm -f 453466456     (-f means forcefully)
+Run the Docker image as container				= docker run -d -p 8000:8090 skill-tracker-search:ReadyForMC3     (-p is doing Port forward)
+http://localhost:8000/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
+						OR
+												= docker run -d -p 8001:8091 skill-tracker-maintain:ReadyForMC3  (-d is running in dormant mode in background)
+												http://localhost:8001/skill-tracker/api/v1/engineer/getAllAssociates
+			
+
+Check the running docker container				= docker container ls
+Remove a Docker container						= docker rm -f 453466456     (-f means forcefully)
+
+
+Remove multiple images
+-----------------------------
+1) First DETAG your image with different repos 			= docker rmi repository/image-name:tag
+
+D:\Projects\FSE4-Azure-Search>docker rmi skilltrackercontainerregistry.azurecr.io/skill-tracker-search
+Untagged: skilltrackercontainerregistry.azurecr.io/skill-tracker-search:latest
+Untagged: skilltrackercontainerregistry.azurecr.io/skill-tracker-search@sha256:43d9ebedcca33cccc27807d8bda1a49804d4f21b3cd1da3f0722e1c4b87d7180
+
+2) then n you can do ---> docker rmi <your-image-id>
+
+There is a way to remove more than one images at a time, when you want to remove multiple specific images. 
+So to do that first get Image IDs simply by listing the images		= docker images
+then execute simple followed command								= docker rmi <your-image-id> <your-image-id>
+
+
+Write Images IDs in the command followed by the spaces between them.
+
 
 
 	PUSH DOCKER IMAGE TO DOCKERHUB
@@ -22,9 +47,11 @@ Login Succeeded
 
 
 
-docker tag skill-tracker-search promitbabai/skill-tracker-search   	= creates a local image tagged to Dockerhub Account
-docker images								= check that image
-docker push promitbabai/skill-tracker-search				= push inside DockerHub
+creates a local image tagged to Dockerhub Account		= docker tag skill-tracker-search:ReadyForMC3 promitbabai/skill-tracker-search:ReadyForMC3   	= 
+creates a local image tagged to Dockerhub Account		= docker tag skill-tracker-maintain:ReadyForMC3 promitbabai/skill-tracker-maintain:ReadyForMC3
+check that image										= docker images								= 
+push inside DockerHub									= docker push promitbabai/skill-tracker-search:ReadyForMC3
+push inside DockerHub									= docker push promitbabai/skill-tracker-maintain:ReadyForMC3
 
 
 Using default tag: latest
@@ -40,7 +67,22 @@ latest: digest: sha256:43d9ebedcca33cccc27807d8bda1a49804d4f21b3cd1da3f0722e1c4b
 
          PUSH DOCKER IMAGE TO AZURE CONTAINER REGISTRY
 	-----------------------------------------------
+D:\Projects\FSE4-Azure-Maintain>docker login skilltrackercontainerregistry.azurecr.io
+Username: skilltrackerContainerRegistry
+Password:
+Login Succeeded
 
+docker tag skill-tracker-maintain:ReadyForMC3 skilltrackercontainerregistry.azurecr.io/skill-tracker-maintain:ReadyForMC3
+docker images								= check that image
+docker push skilltrackercontainerregistry.azurecr.io/skill-tracker-maintain:ReadyForMC3
 
+Using default tag: latest
+The push refers to repository [skilltrackercontainerregistry.azurecr.io/skill-tracker-maintain]
+c059743baee4: Pushed
+d7802b8508af: Mounted from skill-tracker-search
+e3abdc2e9252: Mounted from skill-tracker-search
+eafe6e032dbd: Mounted from skill-tracker-search
+92a4e8a3140f: Mounted from skill-tracker-search
+latest: digest: sha256:78c21adf47c843ea5854c5b1b7705da09141b32364bdf94ce1239509fc1cf85e size: 1371
 
  

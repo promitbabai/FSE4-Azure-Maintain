@@ -29,6 +29,15 @@ GUI =   https://fse4-azure-gui.azurewebsites.net/login
 Hostname = mysql-server-skilltracker.mysql.database.azure.com
 
 
+DOCKER CONTAINER URLS =
+
+LOCAL = http://localhost:8000/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280docdoker
+
+AZURE
+
+
+
+
 GETTING URLS from BACKEND SPRING-BOOT PROJECT
 ---------------------------------
 	Search Microservices =		http://localhost:8090/skill-tracker/api/v1/admin/getAllAssociates = JSON Data displayed from Mongo DB
