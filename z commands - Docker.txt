@@ -67,10 +67,11 @@ latest: digest: sha256:43d9ebedcca33cccc27807d8bda1a49804d4f21b3cd1da3f0722e1c4b
 
          PUSH DOCKER IMAGE TO AZURE CONTAINER REGISTRY
 	-----------------------------------------------
+Azure Container Registry
 	ACR = containerregistryskilltracker.azurecr.io
 	Username = containerRegistrySkillTracker
 	Password = RMxhS6iseG5jUlkns66K4sF2JBylD29LJxKruD0xb7+ACRDmX7o+
-	
+
 D:\Projects\FSE4-Azure-Maintain>docker login skilltrackercontainerregistry.azurecr.io
 Username: skilltrackerContainerRegistry
 Password:
