@@ -14,7 +14,7 @@ spring:
 
 
   datasource:
-    url: jdbc:mysql://mysql-server-skilltracker.mysql.database.azure.com:3306/skilltracker?autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+    url: jdbc:mysql://mysql-db-skilltracker.mysql.database.azure.com:3306/skilltracker?autoReconnect=true&failOverReadOnly=false&maxReconnects=10
     username: promitbabai
     password: Mamonbabai-1
     jpa:
