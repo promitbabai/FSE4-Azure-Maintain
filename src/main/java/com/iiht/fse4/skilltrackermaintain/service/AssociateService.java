@@ -163,7 +163,7 @@ public class AssociateService {
      * @param profile - The Associate Profile sent from UI
      * @return Response - The Response object holding some date and messgae to be displayed in the UI
      */
-    @Transactional
+    //@Transactional
     public Response addProfile (Profile profile){
         Response response = new Response();
         validateInputData(profile);
