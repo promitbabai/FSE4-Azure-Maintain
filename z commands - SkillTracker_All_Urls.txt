@@ -16,9 +16,15 @@ The credentials have a validity of 60 days and a spending limit of $100. It is i
 AZURE URLS
 ------------
 
+AZURE CONTAINER APPS - 
+
+		https://con-app-skiltracker-search.gentlefield-d9a4639f.southeastasia.azurecontainerapps.io/skill-tracker/api/v1/admin/getAllAssociates
+
+APP SERVICE
+
 GUI =   https://fse4-azure-gui.azurewebsites.net/login
 
-
+ = 
 		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAllAssociates - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
 		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280 - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
 		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociatesByName?name=Gangotri%20Basu

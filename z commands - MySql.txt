@@ -1,3 +1,21 @@
+
+PLEASE FOLLOW THE BELOW STEPS CAREFULLY WHILE CREATING 
+Azure Database for MySQL flexible server
+-----------------------------------------
+
+    DATABASE NAME = mysql-db-skilltracker
+    USERNAME      = promitbabai
+    PASSWORD	  = Mamonbabai-1
+
+OPEN MySql Workbench Locally
+--------------------------------------
+Connect to the Azure Database for MySQL flexible server
+	HOSTNAME	= mysql-db-skilltracker.mysql.database.azure.com
+	PORT 		= 3306
+	USERNAME	= promitbabai
+        PASSWORD	= Mamonbabai-1
+
+
 CREATE DATABASE skilltracker;
 
 USE skilltracker;
@@ -92,7 +110,7 @@ INSERT INTO `skilltracker`.`mapping` (`id`,`associateid`,`skillid`,`rating`) VAL
 
 
 
-INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T001', 'html-css-javascript');
+INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T001', 'html-css-js');
 INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T002', 'angular');
 INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T003', 'react');
 INSERT INTO `skilltracker`.`skills` (`skillid`, `skillname`) VALUES ('T004', 'spring');

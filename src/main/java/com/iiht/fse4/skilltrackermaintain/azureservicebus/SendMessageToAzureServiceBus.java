@@ -17,7 +17,7 @@ import com.iiht.fse4.skilltrackermaintain.model.Profile;
  */
 public class SendMessageToAzureServiceBus {
 	
-	public String CONN_STR = "Endpoint=sb://skill-tracker-service-bus.servicebus.windows.net/;SharedAccessKeyName=queue-policy;SharedAccessKey=qGTrNdBJeXrW08C27eninGOb2Hjq4pp9M+ASbDG6VVs=;EntityPath=update-record-in-search-queue";
+	public String CONN_STR = "Endpoint=sb://skill-tracker-service-bus.servicebus.windows.net/;SharedAccessKeyName=queue-policy;SharedAccessKey=ZwWzeZmrYHwv7e56oWuxtNIQzdJ+yFolV+ASbJRlqQE=;EntityPath=update-record-in-search-queue";
     
 	public String QUEUE_NAME = "update-record-in-search-queue";
 	
