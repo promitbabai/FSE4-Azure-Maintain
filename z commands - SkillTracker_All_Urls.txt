@@ -25,6 +25,10 @@ APP SERVICE
 GUI =   https://fse4-azure-gui.azurewebsites.net/login
 
  = 
+SEARCH
+MAINTAIN = https://fse4-azure-maintain1.azurewebsites.net/skill-tracker/api/v1/engineer/getAllAssociates
+	   https://fse4-azure-maintain1.azurewebsites.net/skill-tracker/api/v1/engineer/add-profile
+
 		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAllAssociates - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
 		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280 - AZURE COSMOSDB DATA DISPLAYED ON BROWSER
 		https://fse4-azure-search.azurewebsites.net/skill-tracker/api/v1/admin/getAssociatesByName?name=Gangotri%20Basu
