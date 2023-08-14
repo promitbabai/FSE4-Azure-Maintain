@@ -25,4 +25,4 @@ stages:
         containerRegistry: 'docker-hub'
         repository: 'promitbabai / skill-tracker-maintain'
         command: 'buildAndPush'
-        Dockerfile: app/Dockerfile
+        Dockerfile: '**/Dockerfile'
