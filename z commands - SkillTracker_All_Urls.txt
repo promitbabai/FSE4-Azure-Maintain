@@ -57,7 +57,9 @@ GETTING URLS from BACKEND SPRING-BOOT PROJECT
 					http://localhost:8090/skill-tracker-search/getAllAssociatesOrderBySort?orderby=associateid&sort=desc
 
 
-	Maintain Microservices = 	http://localhost:8091/skill-tracker/api/v1/engineer/add-profile - Postman to MySQL to Kafka to MongoDB - Data saved successfully
+	Maintain Microservices =
+					http://localhost:8091/skill-tracker/api/v1/engineer/maintainGetData  = NO DATABASE REQUIRED (just SYSOUT)
+					http://localhost:8091/skill-tracker/api/v1/engineer/add-profile - Postman to MySQL to Kafka to MongoDB - Data saved successfully
 					http://localhost:8091/skill-tracker/api/v1/engineer/getAllAssociates = JSON Data displayed from MySQL
 					http://localhost:8091/skill-tracker/api/v1/engineer/getAssociateByID?associateID=CTS172280 = JSON Data coming in Browser from MySql DB by ID
 					http://localhost:8091/skill-tracker/api/v1/engineer/validateUserCredentials?associateID=CTS200487&associatePassword=####

@@ -2,17 +2,18 @@
 
 	DOCKER COMMANDS
 
-To build a Docker image from Spring Boot		= docker build -t skill-tracker-search .   // please see that you have given the DOT
-												= docker build -t skill-tracker-search:ReadyForMC3 .  (imageName:TagName) // please see that you have given the DOT
-												= docker build -t skill-tracker-maintain:ReadyForMC3 .  (imageName:TagName) // the DOT is required
+To build a Docker image from Spring Boot		
+	= docker build -t skill-tracker-search .   // please see that you have given the DOT
+	= docker build -t skill-tracker-search:ReadyForMC3 .  (imageName:TagName) // please see that you have given the DOT
+	= docker build -t skill-tracker-maintain:ReadyForMC3 .  (imageName:TagName) // the DOT is required
+	= docker build -t skill-tracker-ui:ImageFor-promit.maju-NoQueue .
+	
 Now check if the image is created properly		= docker images
 
-Run the Docker image as container				= docker run -d -p 8000:8090 skill-tracker-search:ReadyForMC3     (-p is doing Port forward)
-http://localhost:8000/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
-						OR
-												= docker run -d -p 8001:8091 skill-tracker-maintain:ReadyForMC3  (-d is running in dormant mode in background)
-												http://localhost:8001/skill-tracker/api/v1/engineer/getAllAssociates
-			
+Run the Docker image as container				
+	= docker run -d -p 8000:8090 skill-tracker-search:ReadyForMC3   http://localhost:8000/skill-tracker/api/v1/admin/getAssociateByID?associateID=CTS172280
+	= docker run -d -p 8001:8091 skill-tracker-maintain:ImageFor-promit.maju-NoQueue    http://localhost:8001/skill-tracker/api/v1/engineer/getAllAssociates
+	= docker run -d -p 4201:4200 skill-tracker-ui:ImageFor-promit.maju-NoQueue		
 
 Check the running docker container				= docker container ls
 Remove a Docker container						= docker rm -f 453466456     (-f means forcefully)
@@ -48,10 +49,10 @@ Login Succeeded
 
 
 creates a local image tagged to Dockerhub Account		= docker tag skill-tracker-search:ReadyForMC3 promitbabai/skill-tracker-search:ReadyForMC3   	= 
-creates a local image tagged to Dockerhub Account		= docker tag skill-tracker-maintain:ReadyForMC3 promitbabai/skill-tracker-maintain:ReadyForMC3
+creates a local image tagged to Dockerhub Account		= docker tag skill-tracker-maintain:ImageFor-promit.maju-NoQueue promitbabai/skill-tracker-maintain:ImageFor-promit.maju-NoQueue
 check that image										= docker images								= 
 push inside DockerHub									= docker push promitbabai/skill-tracker-search:ReadyForMC3
-push inside DockerHub									= docker push promitbabai/skill-tracker-maintain:ReadyForMC3
+push inside DockerHub									= docker push promitbabai/skill-tracker-maintain:ImageFor-promit.maju-NoQueue
 
 
 Using default tag: latest
