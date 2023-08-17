@@ -92,7 +92,7 @@ public class MaintainController {
      */
     @GetMapping("/maintainGetData")
     public String getData(){
-        return "Hello AddUpdate Microservices";
+        return "Hello Microservices - without DB data";
     }
 
 
